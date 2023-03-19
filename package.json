@@ -17,6 +17,7 @@
     "react-tilt": "^0.1.4",
     "react-vertical-timeline-component": "^3.6.0",
     "styled-components": "^5.3.9",
+    "three": "^0.150.1",
     "web-vitals": "^2.1.4",
     "web3": "^1.8.2"
   },

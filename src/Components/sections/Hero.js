@@ -1,16 +1,20 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 import { Devices } from '../../styles/Themes';
 import Button from '../Button';
+import { dark } from '../../styles/Themes';
+import { Canvas } from "@react-three/fiber";
+
+import logo from '../../assets/Terraft logo.svg';
 
 import planet1 from '../../assets/1.gif';
 import planet2 from '../../assets/2.gif';
 import planet3 from '../../assets/3.gif';
+import { Planet } from './planet';
 
 const Section = styled.section`
-padding: 4em;
-min-height: 100vh;
 width: 100%;
+height: 100vh;
 background-color: ${props => props.theme.text};
 color: ${props => props.theme.body};
 display: flex;
@@ -18,25 +22,17 @@ align-items: center;
 justify-content: center;
 `
 
-const Title = styled.h1`
-text-align: center;
-font-weight: 100;
-font-size: 5rem;
-text-shadow: 0 0 7px #FFFFFF;
-
-  
-
-  @media ${Devices.Laptop} {
-    font-size: 5rem;
-    letter-spacing: 100px;
-  }
+const ImgContainer2 = styled.div`
+position: absolute;
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 100%;
 `
 
 
-
 const ImgContainer = styled.div`
-min-height: 100vh;
-width: 100%;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -49,17 +45,45 @@ gap: 5rem;
 
 
 
+const ButtonContainer = styled.div`
+min-height: 7vh;
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: ${props => props.theme.text};
+width: 100%;
+height: 100%;
+gap: 22.5rem;
+
+@media (max-width: 64em){
+  align-self: center;
+  text-align: center;
+
+button{
+  margin: 0 auto;
+}
+}
+
+`
+
+
+
 const Hero = () => {
   return (
-      <>
+    <>
+    
       <Section>
-      <Title>TERRAFT</Title>
+      <Canvas>
+        <Suspense fallback={null}>
+          <Planet />
+        </Suspense>
+      </Canvas>
+      <ImgContainer2>
+          <img width={1080} height={1080} src={logo} />
+        </ImgContainer2>
       </Section>
-      <ImgContainer>
-        <img width={400} height={400} src={planet1} />
-        <img width={400} height={400} src={planet2} />
-        <img width={400} height={400} src={planet3} />
-      </ImgContainer>
+      
     </>
   )
 }
