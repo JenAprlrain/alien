@@ -4,6 +4,7 @@ import { Devices } from '../../styles/Themes';
 import Button from '../Button';
 import { dark } from '../../styles/Themes';
 import { Canvas } from "@react-three/fiber";
+import Tilt from 'react-tilt';
 
 import logo from '../../assets/Terraft logo.svg';
 
@@ -27,8 +28,8 @@ position: absolute;
 display: flex;
 justify-content: center;
 align-items: center;
-width: 100%;
-height: 100%;
+width: 50%;
+height: 10vh;
 `
 
 
@@ -72,18 +73,20 @@ button{
 const Hero = () => {
   return (
     <>
-    
+
       <Section>
-      <Canvas>
-        <Suspense fallback={null}>
-          <Planet />
-        </Suspense>
-      </Canvas>
-      <ImgContainer2>
-          <img width={1080} height={1080} src={logo} />
+        <Canvas>
+          <Suspense fallback={null}>
+            <Planet />
+          </Suspense>
+        </Canvas>
+        <ImgContainer2>
+          <Tilt >
+            <img width={900} height={150} src={logo} />
+          </Tilt>
         </ImgContainer2>
       </Section>
-      
+
     </>
   )
 }
