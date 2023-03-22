@@ -61,12 +61,23 @@ const MintSite = () => {
     }
   };
 
+
   const handleMint = async () => {
+    const onlyWhitelisted = false; // Set this value based on your contract
+    const preSaleCost = 0.2; // Set this value based on your contract
+    const cost = 0.5; // Set this value based on your contract
+   // Calculate the amount of Ether required based on the selected quantity
+  const _mintAmount = quantity;
+  const requiredAmount = onlyWhitelisted ? preSaleCost * _mintAmount : cost * _mintAmount;
+
+    // Convert the required amount to Wei
+    const payableAmount = web3.utils.toWei(requiredAmount.toString(), "ether");
+
     try {
       const tokenIdsToMint = [];
       for (let i = 0; i < quantity; i++) {
-        const mintResult = await contract.methods.mint(1).send({
-          from: account,
+        const mintResult = await contract.methods.mint(quantity).send({
+          from: account,value: payableAmount,gas: 3000000,
         });
         const mintedTokenId = mintResult.events.Transfer.returnValues.tokenId;
         tokenIdsToMint.push(mintedTokenId);
@@ -114,7 +125,7 @@ const MintSite = () => {
             <div className="slider-button minus" onClick={() => setQuantity(Math.max(quantity - 1, 1))}>
               <i className="fas fa-minus"></i>
             </div>
-            <input type="number" id="quantity" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
+            <input type="number" id="quantity" value={quantity} onChange={(e) => setQuantity(Number(e.target.value))} />
             <div className="slider-button plus" onClick={() => setQuantity(Math.min(quantity + 1, 10))}>
               <i className="fas fa-plus"></i>
             </div>
