@@ -6,9 +6,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Stars } from '@react-three/drei';
 import Hero from './Components/sections/Hero';
 import About from './Components/sections/about';
-<<<<<<< HEAD
-=======
-import Roadmap from './Components/sections/Roadmap';
+
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import Web3 from 'web3';
@@ -93,7 +91,7 @@ const MintSite = () => {
 
 
   const maxSupply =100
->>>>>>> 4fe9a33c568c866dbf780b20efd5fea25924118f
+
 
 
 
