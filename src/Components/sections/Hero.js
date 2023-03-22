@@ -47,14 +47,11 @@ gap: 5rem;
 
 
 const ButtonContainer = styled.div`
-min-height: 7vh;
-width: 100%;
-display: flex;
+position: absolute;
+min-height: 80vh;
+display: block;
 justify-content: center;
 align-items: center;
-background-color: ${props => props.theme.text};
-width: 100%;
-height: 100%;
 gap: 22.5rem;
 
 @media (max-width: 64em){
@@ -73,7 +70,6 @@ button{
 const Hero = () => {
   return (
     <>
-
       <Section>
         <Canvas>
           <Suspense fallback={null}>
@@ -85,6 +81,9 @@ const Hero = () => {
             <img width={900} height={150} src={logo} />
           </Tilt>
         </ImgContainer2>
+        <ButtonContainer>
+          <Button>Whitepaper</Button>
+        </ButtonContainer>
       </Section>
 
     </>

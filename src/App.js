@@ -4,7 +4,6 @@ import{light} from './styles/Themes'
 
 import Hero from './Components/sections/Hero';
 import About from './Components/sections/about';
-import Roadmap from './Components/sections/Roadmap';
 
 
 

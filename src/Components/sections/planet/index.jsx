@@ -34,7 +34,7 @@ export function Planet(props) {
             <sphereGeometry args={[2, 32, 32]} />
             <meshPhongMaterial ceresMap={ceresMap} />
             <meshStandardMaterial map={ceresMap} metalness={0.9} roughness={1} />
-             <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} zoomSpeed={0.6} panSpeed={0.5} rotateSpeed={0.4}/>
+             <OrbitControls enableZoom={false} enablePan={false} enableRotate={true} zoomSpeed={0.6} panSpeed={0.5} rotateSpeed={0.4}/>
             </mesh>
         </>
     );

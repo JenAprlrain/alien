@@ -44,6 +44,7 @@ const about = () => {
     inviting you to explore and discover the magic of nature in all its glory. 
     Whether you are a seasoned collector or simply appreciate the beauty of art and nature, 
     the Terraft NFT collection is a must-see, and a true testament to the creativity and ingenuity of the human spirit.</p>
+    
     </TextContainer>
     </Section
     >
